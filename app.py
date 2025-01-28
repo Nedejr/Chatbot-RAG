@@ -95,9 +95,9 @@ def ask_question(model, query, vector_store):
 vector_store = load_existing_vector_store()
 
 st.set_page_config(
-    page_icon='Chat PyGPT'
+    page_icon='Chat PyGPT :desktop_computer:'
 )
-st.header('Chat com seus documentos (RAG)')
+st.header('Chat com seus documentos (RAG) :desktop_computer:')
 
 with st.sidebar:
     st.header('Upload de Arquivos')
