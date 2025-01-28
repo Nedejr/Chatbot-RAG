@@ -14,6 +14,15 @@ from langchain.chains.retrieval import create_retrieval_chain
 load_dotenv()
 os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
+
+import chromadb
+
+client = chromadb.Client()
+collection = client.get_collection(name="chroma_docs")
+results = collection.get(ids=["page"])["documents"]
+print(results) # Not found []
+
+
 persist_directory = 'db'
 
 def process_pdf(file):
