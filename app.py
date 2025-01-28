@@ -2,7 +2,7 @@
 import pysqlite3
 import sys
 sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
-import chromadb
+
 ###
 from dotenv import load_dotenv
 import os
@@ -17,7 +17,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 
-
+import chromadb
 
 
 load_dotenv()
