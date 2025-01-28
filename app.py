@@ -67,6 +67,7 @@ def ask_question(model, query, vector_store):
     retriever = vector_store.as_retriever()
     system_prompt = '''
     Use o contexto para responder as perguntas, Se não encontrar uma resposta no contexto, explique que não há informações disponíveis.
+    Responda apenas as perguntas que estejam dentro do contexto. Caso não esteja apenas responda que não pode responder.
     Responda em formato de markdown e com visualizações elaboradas e interativas. Contexto: {context}    
     '''
     messages = [('system', system_prompt)]
