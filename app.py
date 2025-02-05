@@ -56,10 +56,12 @@ def add_to_vector(chunks, vector_store=None):
         vector_store.add_documents(chunks)
     else:
         vector_store = Chroma.from_documents(
-            documents=chunks,
-            embedding=OpenAIEmbeddings(),
-            persist_directory=persist_directory
+            
+        documents=chunks,
+        embedding=OpenAIEmbeddings(),
+        persist_directory=persist_directory
         )
+        
     return vector_store
 
 def ask_question(model, query, vector_store):
@@ -80,11 +82,13 @@ def ask_question(model, query, vector_store):
     question_answer_chain = create_stuff_documents_chain(
         llm = llm,
         prompt=prompt,
+        
     )
     
     chain = create_retrieval_chain(
         retriever=retriever,
         combine_docs_chain=question_answer_chain,
+        
     )
 
     response = chain.invoke(
@@ -124,10 +128,10 @@ with st.sidebar:
 
     models_options = [
         'gpt-3.5-turbo',
-        'gpt-4',
-        'gpt-4-turbo',
+        #  'gpt-4',
+        #  'gpt-4-turbo',
         'gpt-4o-mini',
-        'gpt-4o',
+        # 'gpt-4o',
     ]
 
     select_model = st.sidebar.selectbox(
