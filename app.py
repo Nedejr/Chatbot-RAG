@@ -26,7 +26,7 @@ os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 persist_directory = 'db'
 
 def process_pdf(file):
-
+    print(file)
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_file:
         temp_file.write(file.read())
         temp_file_path = temp_file.name
